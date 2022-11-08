@@ -37,7 +37,7 @@ const quiz = [
         question: 'この色でなければ犯人に追いついていたのに...',
         answers: ['左', '真ん中', '右'],
         correct: 0,
-        picture: '<p><img src="/img/signal.png"></p>'
+        picture: '<p><img src="./img/signal.png"></p>'
     },
     {
         question: 'MR.GREENの好きな色に暗号が?',
@@ -49,7 +49,7 @@ const quiz = [
         question: 'あいつがいてくれれば...',
         answers: ['1', '2', '3'],
         correct: 0,
-        picture: '<p><img src="/img/avengers.png"></p>'
+        picture: '<p><img src="./img/avengers.png"></p>'
     },
     {
         question: '犯人の落とした本。狡猾な犯人はこのチームだな',
@@ -61,7 +61,7 @@ const quiz = [
         question: 'GREENはどこだ',
         answers: ['１行目', '３行目', '４行目'],
         correct: 2,
-        picture: '<p><img src="/img/words.png"></p>'
+        picture: '<p><img src="./img/words.png"></p>'
     },
     {
         question: '犯人の屋敷だ！緑のボタンで中に入れそうだ',
@@ -85,7 +85,7 @@ const quiz = [
         question: '絵画のどこかにヒントがありそうだ',
         answers: ['左下', '真ん中', '右下'],
         correct: 0,
-        picture: '<p><img src="/img/orympic.png"></p>'
+        picture: '<p><img src="./img/orympic.png"></p>'
     },
     {
         question: '暗証番号・・・ここだ！天井に何かある',
@@ -97,7 +97,7 @@ const quiz = [
         question: 'ドアが開いた。MR GREENが...........',
         answers: ['死んでいる...', '犯人だ', '生きている！'],
         correct: 2,
-        picture: '<p><img src="/img/mrgreen.png"></p>'
+        picture: '<p><img src="./img/mrgreen.png"></p>'
     },
 
 ];
@@ -149,7 +149,7 @@ $("button").on("click", function (e) {
             total += result[i];
         }
         console.log(total);
-        if (total <= 10) {
+        if (total >= 3) {
             $("#blood").show("#blood");
         } else {
             $(".drunk").show(".drunk");
