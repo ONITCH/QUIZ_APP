@@ -152,7 +152,7 @@ $("button").on("click", function (e) {
         if (total <= 10) {
             $("#blood").show("#blood");
         } else {
-            $("#drunk").show("#drunk");
+            $(".drunk").show(".drunk");
         }
         // console.log(result);
 
