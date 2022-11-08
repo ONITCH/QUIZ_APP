@@ -34,7 +34,7 @@ const quiz = [
         picture: ''
     },
     {
-        question: 'この色でなければ犯人に追いついていたのに...',
+        question: 'この色だったら犯人に追いついていたのに...',
         answers: ['左', '真ん中', '右'],
         correct: 0,
         picture: '<p><img src="./img/signal.png"></p>'
