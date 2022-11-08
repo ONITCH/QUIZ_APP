@@ -122,46 +122,54 @@ $("#answer02").val(2);
 //button タグの value の値を受け取る．
 $("button").on("click", function (e) {
     // 1, 2 `value`を受け取り，条件分岐
-    if (Number(e.target.value) === quiz[result.length].correct) {
-        $("#result").text("CORRECT");
-        result.push(0);
-    } else {
-        $("#result").text("WRONG");
-        result.push(1);
-    }
+
 
     if (result.length < quiz.length) {
-        //次の問題の選択肢を表示する
+
+        if (Number(e.target.value) === quiz[result.length].correct) {
+            $("#result").text("CORRECT");
+            result.push(0);
+        } else {
+            $("#result").text("WRONG");
+            result.push(1);
+        }
+    }
+
+    if (result.length !== quiz.length) {//次の問題の選択肢を表示する
         $("#question_number").text("第 " + (result.length + 1) + " 問");
         $("#question").html(quiz[result.length].question);
         $("#answer00").html(quiz[result.length].answers[0]);
         $("#answer01").html(quiz[result.length].answers[1]);
         $("#answer02").html(quiz[result.length].answers[2]);
         $(".container_picture").html(quiz[result.length].picture);
+
     } else {
-        console.log(result);
+        let total = 0
+        for (let i = 0; i < result.length; i++) {
+            total += result[i];
+        }
+        console.log(total);
+        if (total <= 10) {
+            $("#blood").show("#blood");
+        } else {
+            $("#drunk").show("#drunk");
+        }
+        // console.log(result);
 
-    }
-
-    if (result === 15) {
-        $("#blood").show("#blood");
     }
 
 });
 
 
-// let total = 0
-// for (let i = 0; i < result.length; i++) {
-//     total += result[i];
-// }
+
 
 // console.log(total);
 
-$(function () {
-    if (result === 15) {
-        $("#blood").show("#blood");
-    }
-});
+// $(function () {
+//     if (result === 15) {
+//         $("#blood").show("#blood");
+//     } 
+// });
 
 
 //スポットライト
