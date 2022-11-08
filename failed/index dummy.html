@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+
+<body>
+  <h1>Quiz中級編</h1>
+
+  <p id="question_number">第 n 問</p>
+
+  <p id="question"></p>
+
+  <ul>
+    <li><button id="answer00">0</button></li>
+    <li><button id="answer01">1</button></li>
+    <li><button id="answer02">2</button></li>
+  </ul>
+
+  <p>結果</p>
+  <p id="result"></p>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+
+  <script>
+
+    const quiz = [
+      {
+        question: 'FIND GREEN',
+        answers: ['縁', '緑', '録'],
+        correct: 1,
+      },
+      {
+        question: 'FIND GREEN',
+        answers: ['TREE', 'TOMATO', 'SKY'],
+        correct: 0,
+      },
+      {
+        question: 'FIND GREEN',
+        answers: ['グリフィンドール', 'ハッフルパフ', 'スリザリン'],
+        correct: 2,
+      },
+      {
+        question: 'FIND GREEN',
+        answers: ['萌葱色 #006e54', '小豆色 #96514d', '煤竹色 #6f514c'],
+        correct: 0,
+      },
+      {
+        question: 'FIND GREEN',
+        answers: ['セブンイレブン', 'ローソン', 'ファミリーマート'],
+        correct: [0, 2]
+      },
+      {
+        question: 'FIND GREEN',
+        answers: ['', '', ''],
+        correct: 1,
+      },
+      {
+        question: 'FIND GREEN',
+        answers: ['', '', ''],
+        correct: 2,
+      }, {
+        question: 'FIND GREEN',
+        answers: ['', '', ''],
+        correct: 1,
+      },
+      {
+        question: 'FIND GREEN',
+        answers: ['温泉に浸かる', 'ビールを飲む', '更にコードを書く'],
+        correct: 2,
+      }
+    ];
+
+    // 結果を記録する配列を用意する
+    const result = [];
+    const correctResult = [];
+
+
+    $("#question_number").text("第 " + (result.length + 1) + " 問");
+    // 選択肢の表示
+
+    $("#question").text(quiz[result.length].question);
+    $("#answer00").text(quiz[result.length].answers[0]);
+    $("#answer01").text(quiz[result.length].answers[1]);
+    $("#answer02").text(quiz[result.length].answers[2]);
+    // Valueの設定
+
+    $("#answer00").val(0);
+    $("#answer01").val(1);
+    $("#answer02").val(2);
+
+    //button タグの value の値を受け取る．
+    $("button").on("click", function (e) {
+      // 1, 2 `value`を受け取り，条件分岐
+      if (Number(e.target.value) === quiz[result.length].correct) {
+        $("#result").text("正解");
+        correctResult.push("ok");
+      } else {
+        $("#result").text("不正解");
+        result.push("ng");
+      }
+
+      if (result.length < quiz.length) {
+        //次の問題の選択肢を表示する
+        $("#question_number").text("第 " + (result.length + 1) + " 問");
+        $("#question").text(quiz[result.length].question);
+        $("#answer00").text(quiz[result.length].answers[0]);
+        $("#answer01").text(quiz[result.length].answers[1]);
+        $("#answer02").text(quiz[result.length].answers[2]);
+      } else {
+        console.log(correctResult);
+        console.log(result);
+
+      }
+
+    });
+
+  </script>
+
+</body>
+
+</html>
